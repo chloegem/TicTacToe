@@ -87,3 +87,15 @@ function checkTie() {
 	}
 	return false;
 }
+
+function minimax(newBoard, player){
+	var emptySpot = emptySquares();
+
+	if(checkWinHandler(newBoard, human)){
+		return {score: -10};
+	}else if (checkWinHandler(newBoard,computer_player)){
+		return {score: 10};
+	}else if (emptySpot.length === 0) {
+		return {score: 0};
+	}
+}
