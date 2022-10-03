@@ -49,4 +49,7 @@ function gameOverHandler(gameWon){
 	declareWinnerHandler(gameWon.player == human ? "You win!" : "You lose.");
 }
 
-
+function declareWinnerHandler(who) {
+	document.querySelector(".finishGame").style.display = "block";
+	document.querySelector(".finishGame .text").innerText = ;
+}
