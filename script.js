@@ -98,4 +98,39 @@ function minimax(newBoard, player){
 	}else if (emptySpot.length === 0) {
 		return {score: 0};
 	}
+	var moves = [];
+	for(var i =0 ; i <emptySpot[i] ; i++){
+		var move = {};
+		move.index = newBoard[emptySpot[i]];
+		newBoard[emptySpot[i]] = player;
+
+		if(player == computer_player){
+			var result = minimax(newBoard, human);
+			move.score = result.score;
+		}else{
+			var result = minimax(newBoard, computer_player);
+			move.score = result.score;
+		}
+		newBoard[emptySpot[i]] = move.index;
+		moves.push(move);
+	}
+	var bestMove;
+	if(player === computer_player){
+		var bestScore = -10000;
+		for(var i = 0; i< moves.length ; i++){
+			if(moves[i].score>bestScore){
+				bestScore=moves[i].score;
+				bestMove = i;
+			}
+		}
+	}else{
+		var bestScore = 10000;
+		for(var i = 0; i < moves.length; i++){
+			if(moves[i].score < bestScore){
+				bestScore = moves[i].score;
+				bestMove = i;
+			}
+		}
+	}
+	return moves[bestMove];
 }
