@@ -22,9 +22,9 @@ table tr:last-child td{
 table tr:first-child td{
 	border-top: 0;
 }
-table tr:first-child td{
-	border-top: 0;
+table tr td:last-child{
+	border-bottom: 0;
 }
-table tr:first-child td{
-	border-top: 0;
+table tr td:last-child{
+	border-bottom: 0;
 }
