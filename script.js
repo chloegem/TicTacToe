@@ -99,7 +99,7 @@ function minimax(newBoard, player){
 		return {score: 0};
 	}
 	var moves = [];
-	for(var i =0 ; i <emptySpot[i] ; i++){
+	for(var i =0 ; i <emptySpot.length ; i++){
 		var move = {};
 		move.index = newBoard[emptySpot[i]];
 		newBoard[emptySpot[i]] = player;
