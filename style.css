@@ -16,6 +16,15 @@ table {
 	margin-left: -155px;
 }
 
+table tr:last-child td{
+	border-top: 0;
+}
+table tr:first-child td{
+	border-top: 0;
+}
+table tr:first-child td{
+	border-top: 0;
+}
 table tr:first-child td{
 	border-top: 0;
 }
