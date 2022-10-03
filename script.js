@@ -51,5 +51,39 @@ function gameOverHandler(gameWon){
 
 function declareWinnerHandler(who) {
 	document.querySelector(".finishGame").style.display = "block";
-	document.querySelector(".finishGame .text").innerText = ;
+	document.querySelector(".finishGame .text").innerText = who;
+}
+
+function turnClick(square) {
+	if (typeof table[square.target.id] == 'number') {
+		turn(square.target.id, human)
+		if (!checkWinHandler(table, human) && !checkTie()) turn(bestSpot(), computer_player);
+	}
+}
+
+function turn(squareId, player) {
+	table[squareId] = player;
+	document.getElementById(squareId).innerText = player;
+	let gameWon = checkWinHandler(table, player)
+	if (gameWon) gameOverHandler(gameWon)
+}
+
+function emptySquares() {
+	return table.filter(s => typeof s == 'number');
+}
+
+function bestSpot() {
+	return minimax(table, computer_player).index;
+}
+
+function checkTie() {
+	if (emptySquares().length == 0) {
+		for (var i = 0; i < cells.length; i++) {
+			cells[i].style.backgroundColor = "blue";
+			cells[i].removeEventListener('click', turnClick, false);
+		}
+		declareWinnerHandler("Tie!")
+		return true;
+	}
+	return false;
 }
