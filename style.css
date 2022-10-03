@@ -28,3 +28,8 @@ table tr td:last-child{
 table tr td:last-child{
 	border-bottom: 0;
 }
+
+.finishGame{
+	display: none;
+	background-color: rgba(189, 119, 174, 0.8);
+}
