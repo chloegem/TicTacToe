@@ -15,3 +15,7 @@ table {
 	top: 50px;
 	margin-left: -155px;
 }
+
+table tr:first-child td{
+	border-top: 0;
+}
