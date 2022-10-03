@@ -38,4 +38,15 @@ function checkWinHandler(board, player){
 	return gameWon;
 }
 
+function gameOverHandler(gameWon){
+	for (let index of wins[gameWon.index]) {
+		document.getElementById(index).style.backgroundColor =
+			gameWon.player == human ? "blue" : "red";
+	}
+	for (var i = 0; i < cells.length; i++) {
+		cells[i].removeEventListener('click', turnClick, false);
+	}
+	declareWinnerHandler(gameWon.player == human ? "You win!" : "You lose.");
+}
+
 
